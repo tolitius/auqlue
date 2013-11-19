@@ -51,6 +51,13 @@
   color: rgba(78, 68, 57, 1);
 }
 
+.cal-icon:hover {
+  font-size: 33px;
+  background-color: rgba(121, 32, 4, 0.15);
+  cursor: pointer;
+  color: rgba(61, 56, 50, 1);
+}
+
 #new-auqlue {
     margin: 12px 0px 21px;
 }

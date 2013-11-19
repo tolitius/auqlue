@@ -1,7 +1,7 @@
 (ns auqlue.handler
-  (:use compojure.core
-        auqlue.views)
-  (:require [compojure.handler :as handler]
+  (:require [auqlue.layout.create :refer [create-auqlue]]
+            [compojure.core :refer :all]
+            [compojure.handler :as handler]
             [compojure.route :as route]))
 
 (defroutes app-routes

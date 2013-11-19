@@ -9,13 +9,70 @@
 .create-auqlue {
     font-family: fantasy, inherit;
 }
+.c-header {
+    background: rgba(221, 182, 157, 0.1);
+    padding-bottom: 10px;
+}
+
+.o-footer {
+    background: rgba(150, 95, 60, 0.3);
+    padding-bottom: 100%;
+}
 
 .a-header {
-    margin-top: 15px;
-    font-size: 4em;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.o-label {
+    margin-bottom: -6px;
+    text-align: right;
+}
+
+.o-label .label-success {
+    background-color: rgba(173, 98, 56, 0.44);
+    margin-right: 31px;
+}
+
+.prezi-name {
+    font-size: 3em;
+    color: rgba(78, 68, 57, 1);
+    margin: 14px 0px 4px;
+}
+
+#prezi-input {
+    height: 53px;
+    font-size: 22px;
+}
+
+.cal-icon {
+  font-size: 33px;
+  background-color: rgba(121, 32, 4, 0.09);
+  color: rgba(78, 68, 57, 1);
+}
+
+#new-auqlue {
+    margin: 12px 0px 21px;
 }
 
 .auqlue-color {
+    color: rgba(163, 91, 68, 0.73);
     /* color: rgba(255, 82, 0, 0.76); */
-    color: rgba(0, 0, 0, 0.29)
+    /* color: rgba(0, 0, 0, 0.29) */
+}
+
+::-webkit-input-placeholder {
+   text-align:center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align:center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align:center;  
+}
+
+:-ms-input-placeholder {  
+   text-align:center; 
 }

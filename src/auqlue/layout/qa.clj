@@ -1,19 +1,14 @@
 (ns auqlue.layout.qa
   (:require [auqlue.layout.base :refer :all]))
 
-(defn header []
-  (in-container {:container-class "create-auqlue" :jumbo-class "c-header"}
+(defn header [{:keys [title date sname cname]}]
+  (in-container {:container-class "qa" :jumbo-class "qa-header"}
     [:div.row.center
-     [:p.a-header.auqlue-color "auqlue"]
-     [:h5.create-auqlue 
-      [:span.an.auqlue-color "A"] "nswer to the "
-      [:span.ul.auqlue-color "U"] "ltimate "
-      [:span.qu.auqlue-color "Q"] "uestion of "
-      [:span.li.auqlue-color "L"] "ife, the "
-      [:span.un.auqlue-color "U"] "niverse, and "
-      [:span.ev.auqlue-color "E"] "verything"]]))
+     [:p.qa-title-header title]
+     (if cname [:p.qa-conf-name cname])
+     [:p.qa-date date]]))
 
-(defn creation []
+(defn ask [{:keys[sname]}]
   (in-container {:container-class "create-auqlue"}
     [:div.row.center
      [:form {:role "form"}
@@ -26,7 +21,7 @@
       [:div.form-group.col-md-6.col-md-offset-3
        [:button.btn.btn-lg.btn-warning {:type "submit" :id "new-auqlue"} "Create Auqlue"]]]]))
 
-(defn optional []
+(defn questions [{:keys [pid]}]
   (in-container {:container-class "create-auqlue" :jumbo-class "o-footer"}
     [:div.row.center
      [:form {:role "form"}
@@ -43,8 +38,8 @@
             [:label {:for "conference-name"} "Conference Name"]
             [:input.form-control {:id "conference-input" :placeholder "relate it to the conference"}]]]]]]]]))
 
-(defn qa []
-  (with-bootstrap "Answer to the Ultimate Question of Life, the Universe, and Everything"
-    (header)
-    (creation)
-    (optional)))
+(defn qa-for [{:keys [date title sname cname] :as about}]
+  (with-bootstrap (str "auqlue: " title)
+    (header about)
+    (ask about)
+    (questions about)))

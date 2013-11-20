@@ -40,8 +40,8 @@
             [:label {:for "presenter-name"} "Presenter's Name"]
             [:input.form-control {:id "presenter-input" :placeholder "\"address\" the presenter"}]]
            [:div.form-group.col-md-6
-            [:label {:for "conference-name"} "Conference Name"]
-            [:input.form-control {:id "conference-input" :placeholder "relate it to the conference"}]]]]]]]]))
+            [:label {:for "conference-name"} "Event Name"]
+            [:input.form-control {:id "conference-input" :placeholder "relate it to e.g. a conference"}]]]]]]]]))
 
 (defn create-auqlue []
   (with-bootstrap "Answer to the Ultimate Question of Life, the Universe, and Everything"

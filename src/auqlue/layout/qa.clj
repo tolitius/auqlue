@@ -1,5 +1,6 @@
 (ns auqlue.layout.qa
-  (:require [auqlue.layout.base :refer :all]))
+  (:require [auqlue.layout.base :refer :all]
+            [clojure.string :as cstr]))
 
 (defn header [{:keys [title date sname cname]}]
   (in-container {:container-class "qa" :jumbo-class "qa-header"}
@@ -8,18 +9,23 @@
      (if cname [:p.qa-conf-name cname])
      [:p.qa-date date]]))
 
+(defn address-speaker [sname]
+  (if sname
+    (-> (cstr/split sname #" ")
+        first)))
+
+(defn q-title [sname]
+  (if-let [fname (address-speaker sname)]
+    (str fname ", can you please tell me")
+    "Dear presenter, can you please tell me"))
+
 (defn ask [{:keys[sname]}]
-  (in-container {:container-class "create-auqlue"}
+  (in-container {:container-class "qa"}
     [:div.row.center
      [:form {:role "form"}
       [:div.form-group.col-md-6.col-md-offset-3
-       [:label.prezi-name {:for "prezi-name"} "Presentation Name"]
-       [:div.input-group.margin-bottom-sm
-         [:input.form-control {:id "prezi-input" :autofocus "autofocus" :placeholder "name will be used in a link"}]
-         [:span.input-group-addon.cal-icon
-          [:i.fa.fa-calendar]]]]
-      [:div.form-group.col-md-6.col-md-offset-3
-       [:button.btn.btn-lg.btn-warning {:type "submit" :id "new-auqlue"} "Create Auqlue"]]]]))
+       [:p.q-title (q-title sname)]
+       [:input.form-control {:id "q-input" :autofocus "autofocus" :placeholder "e.g. what is, why, how to, where, when, etc.."}]]]]))
 
 (defn questions [{:keys [pid]}]
   (in-container {:container-class "create-auqlue" :jumbo-class "o-footer"}

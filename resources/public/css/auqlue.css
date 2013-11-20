@@ -41,7 +41,13 @@
     margin: 14px 0px 4px;
 }
 
-#prezi-input {
+.q-title {
+    font-size: 2em;
+    color: rgba(78, 68, 57, 1);
+    margin: 14px 0px 4px;
+}
+
+#prezi-input, #q-input {
     height: 53px;
     font-size: 22px;
 }

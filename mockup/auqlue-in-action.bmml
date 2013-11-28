@@ -18,10 +18,10 @@
         <text>Chariot%20Day%20Conference</text>
       </controlProperties>
     </control>
-    <control controlID="9" controlTypeID="com.balsamiq.mockups::Label" x="433" y="108" w="-1" h="-1" measuredW="368" measuredH="48" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::Label" x="449" y="108" w="-1" h="-1" measuredW="338" measuredH="48" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <size>40</size>
-        <text>%22Simple%20Made%20Easy%22</text>
+        <text>Simple%20Made%20Easy</text>
       </controlProperties>
     </control>
     <control controlID="12" controlTypeID="com.balsamiq.mockups::Label" x="564" y="180" w="-1" h="-1" measuredW="107" measuredH="21" zOrder="5" locked="false" isInGroup="-1">
@@ -116,6 +116,11 @@
         </control>
         <control controlID="3" controlTypeID="com.balsamiq.mockups::VRule" x="48" y="0" w="-1" h="48" measuredW="10" measuredH="100" zOrder="3" locked="false" isInGroup="28"/>
       </groupChildrenDescriptors>
+    </control>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::Label" x="844" y="127" w="-1" h="-1" measuredW="85" measuredH="21" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>by%20Rich%20Hickey</text>
+      </controlProperties>
     </control>
   </controls>
 </mockup>

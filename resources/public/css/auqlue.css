@@ -59,10 +59,10 @@
 }
 
 .cal-icon:hover {
-  font-size: 33px;
-  background-color: rgba(121, 32, 4, 0.15);
-  cursor: pointer;
-  color: rgba(61, 56, 50, 1);
+    font-size: 33px;
+    background-color: rgba(121, 32, 4, 0.15);
+    cursor: pointer;
+    color: rgba(61, 56, 50, 1);
 }
 
 #new-auqlue {
@@ -73,6 +73,72 @@
     color: rgba(163, 91, 68, 0.73);
     /* color: rgba(255, 82, 0, 0.76); */
     /* color: rgba(0, 0, 0, 0.29) */
+}
+
+.qa-header {
+    padding: 10px 0px;
+    margin-bottom: 0px;
+    background: rgba(221, 182, 157, 0.1);
+    font-size: 15px;
+}
+
+.qa-header span {
+    padding: 0px 25px;
+}
+
+.qa-conf-name {
+    line-height: 0px;
+}
+
+.qa-title-header {
+    border-left: solid 1px #ddd;
+    border-right: solid 1px #ddd;
+    font-size: 25px;
+}
+
+.vote-up {
+    line-height: 23px;
+    border-right: solid 2px rgba(163, 76, 13, 0.18);
+    padding-left: 0px;
+    padding-right: 9px;
+    margin-left: 10px;
+    width: 47px;
+}
+
+.vote-up i {
+    margin-bottom: 2px;
+    color: rgba(138, 62, 56, 0.61);
+}
+
+.v-rank {
+    font-size: 23px;
+    padding-bottom: 3px;
+    color: rgba(138, 62, 56, 0.61);
+}
+
+.q-text {
+    text-align: left;
+    line-height: normal;
+    color: rgba(122, 38, 5, 0.81);
+    display: table;
+    min-height: 50px;
+}
+
+.q-text span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.q-panel {
+    padding-left: 0px;
+}
+
+.qa-footer {
+    padding-bottom: 270px;
+    margin-bottom: 0px;
+    padding-top: 20px;
+    margin-top: 10px;
+    background: rgba(150, 95, 60, 0.3);
 }
 
 ::-webkit-input-placeholder {
@@ -89,4 +155,15 @@
 
 :-ms-input-placeholder {  
    text-align:center; 
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .vote-up {float: left;}
+}
+
+@media (max-width: 767px) {
+    .vote-up {float: left;}
 }

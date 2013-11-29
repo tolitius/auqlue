@@ -43,13 +43,17 @@
 
 .q-title {
     font-size: 2em;
-    color: rgba(78, 68, 57, 1);
-    margin: 14px 0px 4px;
+    color: rgba(49, 36, 29, 0.77);
+    margin: 20px 0px 10px;
 }
 
 #prezi-input, #q-input {
     height: 53px;
     font-size: 22px;
+}
+
+#q-input {
+    color: rgba(49, 36, 29, 0.77);
 }
 
 .cal-icon {
@@ -80,10 +84,12 @@
     margin-bottom: 0px;
     background: rgba(221, 182, 157, 0.1);
     font-size: 15px;
+    color: rgba(163, 91, 68, 0.34);
 }
 
 .qa-header span {
     padding: 0px 25px;
+    white-space: nowrap;
 }
 
 .qa-conf-name {
@@ -91,9 +97,10 @@
 }
 
 .qa-title-header {
-    border-left: solid 1px #ddd;
-    border-right: solid 1px #ddd;
+    border-left: solid 1px rgba(163, 57, 7, 0.28);
+    border-right: solid 1px rgba(163, 57, 7, 0.28);
     font-size: 25px;
+    color: rgba(163, 91, 68, 0.63);
 }
 
 .vote-up {
@@ -119,7 +126,7 @@
 .q-text {
     text-align: left;
     line-height: normal;
-    color: rgba(122, 38, 5, 0.81);
+    color: rgba(122, 38, 5, 0.77);
     display: table;
     min-height: 50px;
 }
@@ -136,7 +143,7 @@
 .qa-footer {
     padding-bottom: 270px;
     margin-bottom: 0px;
-    padding-top: 20px;
+    padding-top: 28px;
     margin-top: 10px;
     background: rgba(150, 95, 60, 0.3);
 }

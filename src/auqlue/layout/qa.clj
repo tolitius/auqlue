@@ -23,14 +23,14 @@
   (in-container {:container-class "qa"}
     [:div.row.center
      [:form {:role "form"}
-      [:div.form-group.col-md-6.col-md-offset-3
+      [:div.form-group.col-md-8.col-md-offset-2
        [:p.q-title (q-title sname)]
        [:input.form-control {:id "q-input" :autofocus "autofocus" :placeholder "e.g. what is, why, how to, where, when, etc.."}]]]]))
 
 (defn questions [{:keys [pid]}]
   (in-container {:container-class "qa" :jumbo-class "qa-footer"}
     [:div.row.center
-      [:div.col-md-6.col-md-offset-3
+      [:div.col-md-8.col-md-offset-2
        [:div.panel.panel-warning 
         [:div.panel-body.panel-heading.col-md-12.q-panel
           [:div.vote-up.col-md-1 
@@ -38,7 +38,7 @@
            [:div.v-rank "42"]]
           [:div.col-md-10.q-text [:span "WTF is Monad?"]]]]]]
     [:div.row.center
-      [:div.col-md-6.col-md-offset-3
+      [:div.col-md-8.col-md-offset-2
        [:div.panel.panel-warning 
         [:div.panel-body.panel-heading.col-md-12.q-panel
           [:div.vote-up.col-md-1 

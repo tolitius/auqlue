@@ -2,15 +2,16 @@
   (:require [auqlue.layout.base :refer :all]
             [clojure.string :as cstr]))
 
-(defn header [{:keys [title date sname cname]}]
+(defn header [{:keys [title date sname cname id]}]
   (in-container {:container-class "qa" :jumbo-class "qa-header"}
     [:div.row.center
      (if cname [:span.qa-conf-name cname])
+     [:input {"id" "prezi-id" "type" "hidden" "value" id}]
      [:span.qa-title-header title]
      [:span.qa-date date]]))
 
 (defn address-speaker [sname]
-  (if sname
+  (if (seq sname)
     (-> (cstr/split sname #" ")
         first)))
 
@@ -27,7 +28,7 @@
        [:p.q-title (q-title sname)]
        [:input.form-control {:id "q-input" :autofocus "autofocus" :placeholder "e.g. what is, why, how to, where, when, etc.."}]]]]))
 
-(defn questions [{:keys [pid]}]
+(defn questions [{:keys [qs]}]
   (in-container {:container-class "qa" :jumbo-class "qa-footer"}
     [:div.row.center
       [:div.col-md-8.col-md-offset-2
@@ -46,7 +47,7 @@
            [:div.v-rank "23"]]
           [:div.col-md-10.q-text [:span "This would be a long question, so let me start by saying.."]]]]]]))
 
-(defn qa-for [{:keys [date title sname cname] :as about}]
+(defn qa-for [{:keys [title] :as about}]
   (with-bootstrap (str "auqlue: " title)
     (header about)
     (ask about)

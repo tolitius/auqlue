@@ -9,6 +9,7 @@
                  [hiccup "1.0.4"]
                  [crate "0.2.4"]
                  [jayq "2.5.0"]
+                 [org.clojure/tools.logging "0.2.6"]
                  [org.clojure/clojurescript "0.0-2030"]
                  [org.clojure/clojure "1.5.1"]]
 

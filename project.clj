@@ -2,6 +2,8 @@
   :description "42 for all your presentations"
   :url "https://github.com/tolitius/auqlue"
 
+  :source-paths ["src" "src/auqlue"]
+
   :dependencies [[clj-time "0.6.0"]
                  [compojure "1.1.6"]
                  [hiccup "1.0.4"]

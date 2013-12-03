@@ -28542,6 +28542,15 @@ goog.require("goog.net.XhrIo");
 goog.require("goog.net.XhrIo");
 goog.require("jayq.core");
 goog.require("jayq.core");
+auqlue.create.$prezi_input = jayq.core.$.call(null, new cljs.core.Keyword(null, "#prezi-input", "#prezi-input", 1006504638));
+auqlue.create.$presenter_input = jayq.core.$.call(null, new cljs.core.Keyword(null, "#presenter-input", "#presenter-input", 1217354068));
+auqlue.create.$event_input = jayq.core.$.call(null, new cljs.core.Keyword(null, "#conference-input", "#conference-input", 1437841774));
+auqlue.create.$add_presenter_input = jayq.core.$.call(null, new cljs.core.Keyword(null, "#add-presenter-input", "#add-presenter-input", 4232604072));
+auqlue.create.$add_event_input = jayq.core.$.call(null, new cljs.core.Keyword(null, "#add-event-input", "#add-event-input", 2759650458));
+auqlue.create.$new_auqlue_btn = jayq.core.$.call(null, new cljs.core.Keyword(null, "#new-auqlue", "#new-auqlue", 1351738561));
+auqlue.create.$add_auqlue_form = jayq.core.$.call(null, new cljs.core.Keyword(null, ".add-auqlue", ".add-auqlue", 4373614827));
+auqlue.create.$purchase_list = jayq.core.$.call(null, new cljs.core.Keyword(null, ".purchase-list", ".purchase-list", 2157769710));
+auqlue.create.$status_dropdown = jayq.core.$.call(null, new cljs.core.Keyword(null, "#combosel_chzn", "#combosel_chzn", 709788379));
 auqlue.create.$fletters = cljs.core.PersistentVector.fromArray([jayq.core.$.call(null, ".create-auqlue .an"), jayq.core.$.call(null, ".create-auqlue .ul"), jayq.core.$.call(null, ".create-auqlue .qu"), jayq.core.$.call(null, ".create-auqlue .li"), jayq.core.$.call(null, ".create-auqlue .un"), jayq.core.$.call(null, ".create-auqlue .ev")], true);
 auqlue.create.fade_out_in = function fade_out_in(xs) {
   return cljs.core.doall.call(null, cljs.core.map_indexed.call(null, function(i, el) {
@@ -28551,5 +28560,43 @@ auqlue.create.fade_out_in = function fade_out_in(xs) {
   }, xs))
 };
 auqlue.create.fade_out_in.call(null, auqlue.create.$fletters);
+auqlue.create.show_details = function show_details(data) {
+  var details = cljs.reader.read_string.call(null, data);
+  return console.log("details: ", details)
+};
+auqlue.create.save_new_auqlue = function save_new_auqlue(auqlue__$1) {
+  return jayq.core.ajax.call(null, cljs.core.PersistentArrayMap.fromArray([new cljs.core.Keyword(null, "url", "url", 1014020321), "/new-auqlue", new cljs.core.Keyword(null, "data", "data", 1016980252), auqlue__$1, new cljs.core.Keyword(null, "type", "type", 1017479852), "POST", new cljs.core.Keyword(null, "success", "success", 3441701749), auqlue.create.show_details], true))
+};
+auqlue.create.create_auqlue = function create_auqlue() {
+  var prezi = auqlue.create.$prezi_input.val();
+  var presenter = auqlue.create.$presenter_input.val();
+  var event = auqlue.create.$event_input.val();
+  console.log("prezi: ", prezi, ", presenter: ", presenter, ", event: ", event);
+  if(cljs.core.seq.call(null, prezi)) {
+    return auqlue.create.save_new_auqlue.call(null, cljs.core.PersistentArrayMap.fromArray([new cljs.core.Keyword(null, "prezi", "prezi", 1120835716), prezi, new cljs.core.Keyword(null, "presenter", "presenter", 4386928154), presenter, new cljs.core.Keyword(null, "event", "event", 1110795788), event], true))
+  }else {
+    return console.log('please enter "Presentation Name"')
+  }
+};
+jayq.core.on.call(null, auqlue.create.$new_auqlue_btn, new cljs.core.Keyword(null, "click", "click", 1108654330), function(e) {
+  e.preventDefault();
+  return auqlue.create.create_auqlue.call(null)
+});
+jayq.core.on.call(null, auqlue.create.$presenter_input, new cljs.core.Keyword(null, "keydown", "keydown", 4493897459), function(e) {
+  if(cljs.core._EQ_.call(null, e.keyCode, 13)) {
+    e.preventDefault();
+    return auqlue.create.$new_auqlue_btn.click()
+  }else {
+    return null
+  }
+});
+jayq.core.on.call(null, auqlue.create.$event_input, new cljs.core.Keyword(null, "keydown", "keydown", 4493897459), function(e) {
+  if(cljs.core._EQ_.call(null, e.keyCode, 13)) {
+    e.preventDefault();
+    return auqlue.create.$new_auqlue_btn.click()
+  }else {
+    return null
+  }
+});
 
 //# sourceMappingURL=auqlue.js.map

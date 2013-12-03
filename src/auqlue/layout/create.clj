@@ -16,7 +16,7 @@
 (defn creation []
   (in-container {:container-class "create-auqlue"}
     [:div.row.center
-     [:form {:role "form"}
+     [:form.add-auqlue {:role "form"}
       [:div.form-group.col-md-6.col-md-offset-3
        [:label.prezi-name {:for "prezi-name"} "Presentation Name"]
        [:div.input-group.margin-bottom-sm

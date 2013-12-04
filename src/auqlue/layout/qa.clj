@@ -1,6 +1,7 @@
 (ns auqlue.layout.qa
   (:require [auqlue.layout.base :refer :all]
-            [clojure.string :as cstr]))
+            [clojure.string :as cstr]
+            [hiccup.core]))
 
 (defn header [{:keys [title date sname cname id]}]
   (in-container {:container-class "qa" :jumbo-class "qa-header"}
@@ -28,24 +29,33 @@
        [:p.q-title (q-title sname)]
        [:input.form-control {:id "q-input" :autofocus "autofocus" :placeholder "e.g. what is, why, how to, where, when, etc.."}]]]]))
 
+(defn show-qs [qs]
+  (for [{:keys [qid question votes]} qs]
+    [:div {"class" (str "row center b-" qid)}
+      [:div.col-md-8.col-md-offset-2
+       [:div.panel.panel-warning 
+        [:div.panel-body.panel-heading.col-md-12.q-panel
+          [:div.vote-up.col-md-1 
+           [:div {"class" (str "q-" qid)} [:i.fa.fa-chevron-up]]
+           [:div.v-rank votes]]
+          [:div.col-md-10.q-text [:span question]]]]]]))
+
+(defn q-blank []
+  [:div.row.center
+    [:div.col-md-8.col-md-offset-2
+     [:div.panel.panel-warning 
+      [:div.panel-body.panel-heading.col-md-12.q-panel
+        [:div.vote-up.col-md-1 
+         [:div [:i.fa.fa-angle-double-right]]
+         [:div.v-rank [:i.fa.fa-angle-double-right]]]
+        [:div.col-md-10.q-text [:span.center "Be The First One To Ask a Question!"]]]]]])
+
+
 (defn questions [{:keys [qs]}]
   (in-container {:container-class "qa" :jumbo-class "qa-footer"}
-    [:div.row.center
-      [:div.col-md-8.col-md-offset-2
-       [:div.panel.panel-warning 
-        [:div.panel-body.panel-heading.col-md-12.q-panel
-          [:div.vote-up.col-md-1 
-           [:div [:i.fa.fa-chevron-up]]
-           [:div.v-rank "42"]]
-          [:div.col-md-10.q-text [:span "WTF is Monad?"]]]]]]
-    [:div.row.center
-      [:div.col-md-8.col-md-offset-2
-       [:div.panel.panel-warning 
-        [:div.panel-body.panel-heading.col-md-12.q-panel
-          [:div.vote-up.col-md-1 
-           [:div [:i.fa.fa-chevron-up]]
-           [:div.v-rank "23"]]
-          [:div.col-md-10.q-text [:span "This would be a long question, so let me start by saying.."]]]]]]))
+    (if (seq qs)
+      (show-qs qs)
+      (q-blank))))
 
 (defn qa-for [{:keys [title] :as about}]
   (with-bootstrap (str "auqlue: " title)

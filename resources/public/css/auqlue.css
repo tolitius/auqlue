@@ -2,6 +2,10 @@
     text-align: center;
 }
 
+.q-hidden {
+    display: none;
+}
+
 /* .auqlue-font { */
 /*     font-family: 'Latin Modern Roman', Georgia, 'Times New Roman', Times, serif; */
 /* } */
@@ -140,7 +144,7 @@
 }
 
 .qa-footer {
-    padding-bottom: 270px;
+    padding-bottom: 550px;
     margin-bottom: 0px;
     padding-top: 28px;
     margin-top: 10px;

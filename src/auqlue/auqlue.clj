@@ -2,6 +2,7 @@
   (:require [auqlue.db :refer [existing-title? add-auqlue find-by-title add-q]]
             [clojure.string :refer [split capitalize lower-case] :as cstr]
             [clojure.tools.logging :refer [info]]
+            [clojure.edn :as edn]
             [clj-time.core :refer [now]]
             [clj-time.format :refer :all]))
 
@@ -29,7 +30,7 @@
 
 (defn auqlue-data [d t]                    ;; TODO: lookup will be doneby an event id instead (of its title)
   (let [title (lower-case (dehyph t))]
-    (info (str "existing title?: \"" title "\""))
+    (info (str "existing title?: \"" title "\" => " (existing-title? title)))
     (if (existing-title? title)
       (let [{:keys [id presenter event date qs] :as xyz} (find-by-title title)]
         (info "find title: \"" title "\" => " xyz)
@@ -42,4 +43,4 @@
       {:not-found true})))
 
 (defn add-question [id q]
-  (add-q id q))
+  (add-q (edn/read-string id) q))

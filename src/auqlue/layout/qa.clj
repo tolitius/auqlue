@@ -36,7 +36,7 @@
        [:div.panel.panel-warning 
         [:div.panel-body.panel-heading.col-md-12.q-panel
           [:div.vote-up.col-md-1 
-           [:div {"class" (str "q-" qid)} [:i.fa.fa-chevron-up]]
+           [:div {"class" (str "vup q-" qid)} [:i.fa.fa-chevron-up]]
            [:div.v-rank votes]]
           [:div.col-md-10.q-text [:span question]]]]]]))
 

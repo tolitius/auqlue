@@ -43,3 +43,10 @@
     (swap! qs assoc id [{:qid 0 :question q :votes 1}]))      ;; if this is the first question, create the vec
   (info (str "questions for [" id "]:" (@qs id)))
   (@qs id))
+
+(defn vote-up [id qid]
+  (let [prezi-qs (@qs id)
+        current-votes (get-in prezi-qs [qid :votes])]
+    (swap! qs assoc id 
+           (assoc-in prezi-qs [qid :votes] (inc current-votes)))
+    (inc current-votes)))

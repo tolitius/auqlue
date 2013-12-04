@@ -120,6 +120,11 @@
     color: rgba(138, 62, 56, 0.61);
 }
 
+.vup > i:hover, .vup:hover {
+    cursor: pointer;
+    color: rgba(138, 62, 56, 0.86);
+}
+
 .v-rank {
     font-size: 23px;
     padding-bottom: 3px;

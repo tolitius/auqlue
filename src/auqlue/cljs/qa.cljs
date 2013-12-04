@@ -1,5 +1,6 @@
 (ns auqlue.qa
   (:require [auqlue.thingies :refer [fade-out-in info info->js]]
+            [clojure.string :refer [split]]
             [jayq.core :as jq]
             [cljs.reader :as reader]
             [crate.core :as crate])
@@ -9,6 +10,8 @@
 
 (def $q-input ($ :#q-input))
 (def $prezi-id ($ :#prezi-id))
+(def $qa-footer ($ :.qa-footer))
+(def $vote ($ ".qa .vup"))
 
 ;; questions
 
@@ -20,7 +23,7 @@
          [:div.panel.panel-warning 
           [:div.panel-body.panel-heading.col-md-12.q-panel
             [:div.vote-up.col-md-1 
-             [:div {"class" (str "q-" qid)} [:i.fa.fa-chevron-up]]
+             [:div {"class" (str "vup q-" qid)} [:i.fa.fa-chevron-up]]
              [:div.v-rank votes]]
             [:div.col-md-10.q-text [:span question]]]]]])])
 
@@ -31,13 +34,10 @@
     (fade-out-in h-blocks :i-tout 150 :show jq/fade-in)))
 
 (defn show-questions [data]
-  (.log js/console "data: " data)
   (if (seq data)
     (let [qs (reader/read-string data)]
       (.val $q-input "")
-      (.log js/console "questions: " (clj->js qs))
-      (.log js/console "q-partial: " (questions qs))
-      (jq/html ($ :.qa-footer) (questions qs))
+      (jq/html $qa-footer (questions qs))
       (ladder-viz qs))
     (.log js/console "found no questions for this prezi")))
 
@@ -61,8 +61,13 @@
 ;; voting
 
 (defn update-ranking [data]
-  (let [votes (reader/read-string data)]
-    (.log js/console "votes: " votes)))
+  (let [{:keys [id qid votes]} (reader/read-string data)
+        prezi-id (.val $prezi-id)]
+    (if (= prezi-id (str id)) (do
+      (let [$v (jq/next ($ (str ".q-" qid)))]
+        (jq/hide $v)
+        (jq/html $v votes)
+        (jq/fade-in $v))))))
 
 (defn add-vote [q]
   (jq/ajax {:url "/add-vote"
@@ -72,7 +77,13 @@
 
 (defn vote-up [e]
   (this-as q
-    (.log js/console "voting up: " q)))
+    (let [qid (-> (.-className q) 
+                  (split #" ")
+                  last
+                  (split #"-")
+                  last)
+          id (.val $prezi-id)]
+      (add-vote {:id id :qid qid}))))
 
-(jq/on ($ :.q42) :click vote-up)
+(jq/on $qa-footer :click ".vup" vote-up)
 

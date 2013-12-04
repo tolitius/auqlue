@@ -1,5 +1,5 @@
 (ns auqlue
-  (:require [auqlue.db :refer [existing-title? add-auqlue find-by-title add-q]]
+  (:require [auqlue.db :refer [existing-title? add-auqlue find-by-title add-q vote-up]]
             [clojure.string :refer [split capitalize lower-case] :as cstr]
             [clojure.tools.logging :refer [info]]
             [clojure.edn :as edn]
@@ -44,3 +44,10 @@
 
 (defn add-question [id q]
   (add-q (edn/read-string id) q))
+
+(defn add-vote [id qid]
+  (let [id (edn/read-string id)
+        qid (edn/read-string qid)]
+    (if (and id qid)
+      (let [votes (vote-up id qid)]
+        {:id id :qid qid :votes votes}))))

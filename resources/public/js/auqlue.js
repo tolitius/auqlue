@@ -29500,6 +29500,7 @@ jayq.core.on.call(null, auqlue.create.$event_input, new cljs.core.Keyword(null, 
 goog.provide("auqlue.qa");
 goog.require("cljs.core");
 goog.require("jayq.core");
+goog.require("clojure.string");
 goog.require("auqlue.thingies");
 goog.require("crate.core");
 goog.require("crate.core");
@@ -29507,38 +29508,41 @@ goog.require("cljs.reader");
 goog.require("cljs.reader");
 goog.require("jayq.core");
 goog.require("jayq.core");
+goog.require("clojure.string");
 goog.require("auqlue.thingies");
 auqlue.qa.$q_input = jayq.core.$.call(null, new cljs.core.Keyword(null, "#q-input", "#q-input", 4775061853));
 auqlue.qa.$prezi_id = jayq.core.$.call(null, new cljs.core.Keyword(null, "#prezi-id", "#prezi-id", 907362379));
-var group__4341__auto___5587 = cljs.core.swap_BANG_.call(null, crate.core.group_id, cljs.core.inc);
+auqlue.qa.$qa_footer = jayq.core.$.call(null, new cljs.core.Keyword(null, ".qa-footer", ".qa-footer", 4043269884));
+auqlue.qa.$vote = jayq.core.$.call(null, ".qa .vup");
+var group__4341__auto___9962 = cljs.core.swap_BANG_.call(null, crate.core.group_id, cljs.core.inc);
 auqlue.qa.questions = function questions(qs) {
   var elem__4342__auto__ = crate.core.html.call(null, cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.container.qa", "div.container.qa", 2882854988), function() {
-    var iter__3817__auto__ = function iter__5579(s__5580) {
+    var iter__3817__auto__ = function iter__9954(s__9955) {
       return new cljs.core.LazySeq(null, function() {
-        var s__5580__$1 = s__5580;
+        var s__9955__$1 = s__9955;
         while(true) {
-          var temp__4092__auto__ = cljs.core.seq.call(null, s__5580__$1);
+          var temp__4092__auto__ = cljs.core.seq.call(null, s__9955__$1);
           if(temp__4092__auto__) {
-            var s__5580__$2 = temp__4092__auto__;
-            if(cljs.core.chunked_seq_QMARK_.call(null, s__5580__$2)) {
-              var c__3815__auto__ = cljs.core.chunk_first.call(null, s__5580__$2);
+            var s__9955__$2 = temp__4092__auto__;
+            if(cljs.core.chunked_seq_QMARK_.call(null, s__9955__$2)) {
+              var c__3815__auto__ = cljs.core.chunk_first.call(null, s__9955__$2);
               var size__3816__auto__ = cljs.core.count.call(null, c__3815__auto__);
-              var b__5582 = cljs.core.chunk_buffer.call(null, size__3816__auto__);
+              var b__9957 = cljs.core.chunk_buffer.call(null, size__3816__auto__);
               if(function() {
-                var i__5581 = 0;
+                var i__9956 = 0;
                 while(true) {
-                  if(i__5581 < size__3816__auto__) {
-                    var map__5585 = cljs.core._nth.call(null, c__3815__auto__, i__5581);
-                    var map__5585__$1 = cljs.core.seq_QMARK_.call(null, map__5585) ? cljs.core.apply.call(null, cljs.core.hash_map, map__5585) : map__5585;
-                    var votes = cljs.core.get.call(null, map__5585__$1, new cljs.core.Keyword(null, "votes", "votes", 1126301243));
-                    var question = cljs.core.get.call(null, map__5585__$1, new cljs.core.Keyword(null, "question", "question", 4143001432));
-                    var qid = cljs.core.get.call(null, map__5585__$1, new cljs.core.Keyword(null, "qid", "qid", 1014016190));
-                    cljs.core.chunk_append.call(null, b__5582, cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div", "div", 1014003715), cljs.core.PersistentArrayMap.fromArray(["class", [cljs.core.str("row center q-hidden b-"), cljs.core.str(qid)].join("")], true), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.col-md-8.col-md-offset-2", "div.col-md-8.col-md-offset-2", 4590716945), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.panel.panel-warning", 
+                  if(i__9956 < size__3816__auto__) {
+                    var map__9960 = cljs.core._nth.call(null, c__3815__auto__, i__9956);
+                    var map__9960__$1 = cljs.core.seq_QMARK_.call(null, map__9960) ? cljs.core.apply.call(null, cljs.core.hash_map, map__9960) : map__9960;
+                    var votes = cljs.core.get.call(null, map__9960__$1, new cljs.core.Keyword(null, "votes", "votes", 1126301243));
+                    var question = cljs.core.get.call(null, map__9960__$1, new cljs.core.Keyword(null, "question", "question", 4143001432));
+                    var qid = cljs.core.get.call(null, map__9960__$1, new cljs.core.Keyword(null, "qid", "qid", 1014016190));
+                    cljs.core.chunk_append.call(null, b__9957, cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div", "div", 1014003715), cljs.core.PersistentArrayMap.fromArray(["class", [cljs.core.str("row center q-hidden b-"), cljs.core.str(qid)].join("")], true), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.col-md-8.col-md-offset-2", "div.col-md-8.col-md-offset-2", 4590716945), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.panel.panel-warning", 
                     "div.panel.panel-warning", 526307582), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.panel-body.panel-heading.col-md-12.q-panel", "div.panel-body.panel-heading.col-md-12.q-panel", 1977784987), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.vote-up.col-md-1", "div.vote-up.col-md-1", 1340799079), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div", "div", 1014003715), cljs.core.PersistentArrayMap.fromArray(["class", 
-                    [cljs.core.str("q-"), cljs.core.str(qid)].join("")], true), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "i.fa.fa-chevron-up", "i.fa.fa-chevron-up", 3600769571)], true)], true), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.v-rank", "div.v-rank", 2825209490), votes], true)], true), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.col-md-10.q-text", "div.col-md-10.q-text", 4656229726), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, 
+                    [cljs.core.str("vup q-"), cljs.core.str(qid)].join("")], true), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "i.fa.fa-chevron-up", "i.fa.fa-chevron-up", 3600769571)], true)], true), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.v-rank", "div.v-rank", 2825209490), votes], true)], true), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.col-md-10.q-text", "div.col-md-10.q-text", 4656229726), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, 
                     "span", "span", 1017440956), question], true)], true)], true)], true)], true)], true));
-                    var G__5588 = i__5581 + 1;
-                    i__5581 = G__5588;
+                    var G__9963 = i__9956 + 1;
+                    i__9956 = G__9963;
                     continue
                   }else {
                     return true
@@ -29546,20 +29550,20 @@ auqlue.qa.questions = function questions(qs) {
                   break
                 }
               }()) {
-                return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__5582), iter__5579.call(null, cljs.core.chunk_rest.call(null, s__5580__$2)))
+                return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__9957), iter__9954.call(null, cljs.core.chunk_rest.call(null, s__9955__$2)))
               }else {
-                return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__5582), null)
+                return cljs.core.chunk_cons.call(null, cljs.core.chunk.call(null, b__9957), null)
               }
             }else {
-              var map__5586 = cljs.core.first.call(null, s__5580__$2);
-              var map__5586__$1 = cljs.core.seq_QMARK_.call(null, map__5586) ? cljs.core.apply.call(null, cljs.core.hash_map, map__5586) : map__5586;
-              var votes = cljs.core.get.call(null, map__5586__$1, new cljs.core.Keyword(null, "votes", "votes", 1126301243));
-              var question = cljs.core.get.call(null, map__5586__$1, new cljs.core.Keyword(null, "question", "question", 4143001432));
-              var qid = cljs.core.get.call(null, map__5586__$1, new cljs.core.Keyword(null, "qid", "qid", 1014016190));
+              var map__9961 = cljs.core.first.call(null, s__9955__$2);
+              var map__9961__$1 = cljs.core.seq_QMARK_.call(null, map__9961) ? cljs.core.apply.call(null, cljs.core.hash_map, map__9961) : map__9961;
+              var votes = cljs.core.get.call(null, map__9961__$1, new cljs.core.Keyword(null, "votes", "votes", 1126301243));
+              var question = cljs.core.get.call(null, map__9961__$1, new cljs.core.Keyword(null, "question", "question", 4143001432));
+              var qid = cljs.core.get.call(null, map__9961__$1, new cljs.core.Keyword(null, "qid", "qid", 1014016190));
               return cljs.core.cons.call(null, cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div", "div", 1014003715), cljs.core.PersistentArrayMap.fromArray(["class", [cljs.core.str("row center q-hidden b-"), cljs.core.str(qid)].join("")], true), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.col-md-8.col-md-offset-2", "div.col-md-8.col-md-offset-2", 4590716945), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.panel.panel-warning", 
               "div.panel.panel-warning", 526307582), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.panel-body.panel-heading.col-md-12.q-panel", "div.panel-body.panel-heading.col-md-12.q-panel", 1977784987), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.vote-up.col-md-1", "div.vote-up.col-md-1", 1340799079), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div", "div", 1014003715), cljs.core.PersistentArrayMap.fromArray(["class", 
-              [cljs.core.str("q-"), cljs.core.str(qid)].join("")], true), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "i.fa.fa-chevron-up", "i.fa.fa-chevron-up", 3600769571)], true)], true), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.v-rank", "div.v-rank", 2825209490), votes], true)], true), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.col-md-10.q-text", "div.col-md-10.q-text", 4656229726), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, 
-              "span", "span", 1017440956), question], true)], true)], true)], true)], true)], true), iter__5579.call(null, cljs.core.rest.call(null, s__5580__$2)))
+              [cljs.core.str("vup q-"), cljs.core.str(qid)].join("")], true), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "i.fa.fa-chevron-up", "i.fa.fa-chevron-up", 3600769571)], true)], true), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.v-rank", "div.v-rank", 2825209490), votes], true)], true), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, "div.col-md-10.q-text", "div.col-md-10.q-text", 4656229726), cljs.core.PersistentVector.fromArray([new cljs.core.Keyword(null, 
+              "span", "span", 1017440956), question], true)], true)], true)], true)], true)], true), iter__9954.call(null, cljs.core.rest.call(null, s__9955__$2)))
             }
           }else {
             return null
@@ -29570,29 +29574,26 @@ auqlue.qa.questions = function questions(qs) {
     };
     return iter__3817__auto__.call(null, qs)
   }()], true));
-  elem__4342__auto__.setAttribute("crateGroup", group__4341__auto___5587);
+  elem__4342__auto__.setAttribute("crateGroup", group__4341__auto___9962);
   return elem__4342__auto__
 };
-auqlue.qa.questions.prototype._crateGroup = group__4341__auto___5587;
+auqlue.qa.questions.prototype._crateGroup = group__4341__auto___9962;
 auqlue.qa.ladder_viz = function ladder_viz(qs) {
-  var q_blocks = cljs.core.map.call(null, function(p1__5589_SHARP_) {
-    return jayq.core.$.call(null, [cljs.core.str(".b-"), cljs.core.str((new cljs.core.Keyword(null, "qid", "qid", 1014016190)).cljs$core$IFn$_invoke$arity$1(p1__5589_SHARP_))].join(""))
+  var q_blocks = cljs.core.map.call(null, function(p1__9964_SHARP_) {
+    return jayq.core.$.call(null, [cljs.core.str(".b-"), cljs.core.str((new cljs.core.Keyword(null, "qid", "qid", 1014016190)).cljs$core$IFn$_invoke$arity$1(p1__9964_SHARP_))].join(""))
   }, qs);
   var h_blocks = cljs.core.map.call(null, function(q_blocks) {
-    return function(p1__5590_SHARP_) {
-      return jayq.core.remove_class.call(null, jayq.core.hide.call(null, p1__5590_SHARP_), "q-hidden")
+    return function(p1__9965_SHARP_) {
+      return jayq.core.remove_class.call(null, jayq.core.hide.call(null, p1__9965_SHARP_), "q-hidden")
     }
   }(q_blocks), q_blocks);
   return auqlue.thingies.fade_out_in.call(null, h_blocks, new cljs.core.Keyword(null, "i-tout", "i-tout", 4065089712), 150, new cljs.core.Keyword(null, "show", "show", 1017433711), jayq.core.fade_in)
 };
 auqlue.qa.show_questions = function show_questions(data) {
-  console.log("data: ", data);
   if(cljs.core.seq.call(null, data)) {
     var qs = cljs.reader.read_string.call(null, data);
     auqlue.qa.$q_input.val("");
-    console.log("questions: ", cljs.core.clj__GT_js.call(null, qs));
-    console.log("q-partial: ", auqlue.qa.questions.call(null, qs));
-    jayq.core.html.call(null, jayq.core.$.call(null, new cljs.core.Keyword(null, ".qa-footer", ".qa-footer", 4043269884)), auqlue.qa.questions.call(null, qs));
+    jayq.core.html.call(null, auqlue.qa.$qa_footer, auqlue.qa.questions.call(null, qs));
     return auqlue.qa.ladder_viz.call(null, qs)
   }else {
     return console.log("found no questions for this prezi")
@@ -29618,16 +29619,30 @@ jayq.core.on.call(null, auqlue.qa.$q_input, new cljs.core.Keyword(null, "keydown
   }
 });
 auqlue.qa.update_ranking = function update_ranking(data) {
-  var votes = cljs.reader.read_string.call(null, data);
-  return console.log("votes: ", votes)
+  var map__9967 = cljs.reader.read_string.call(null, data);
+  var map__9967__$1 = cljs.core.seq_QMARK_.call(null, map__9967) ? cljs.core.apply.call(null, cljs.core.hash_map, map__9967) : map__9967;
+  var votes = cljs.core.get.call(null, map__9967__$1, new cljs.core.Keyword(null, "votes", "votes", 1126301243));
+  var qid = cljs.core.get.call(null, map__9967__$1, new cljs.core.Keyword(null, "qid", "qid", 1014016190));
+  var id = cljs.core.get.call(null, map__9967__$1, new cljs.core.Keyword(null, "id", "id", 1013907597));
+  var prezi_id = auqlue.qa.$prezi_id.val();
+  if(cljs.core._EQ_.call(null, prezi_id, [cljs.core.str(id)].join(""))) {
+    var $v = jayq.core.next.call(null, jayq.core.$.call(null, [cljs.core.str(".q-"), cljs.core.str(qid)].join("")));
+    jayq.core.hide.call(null, $v);
+    jayq.core.html.call(null, $v, votes);
+    return jayq.core.fade_in.call(null, $v)
+  }else {
+    return null
+  }
 };
 auqlue.qa.add_vote = function add_vote(q) {
   return jayq.core.ajax.call(null, cljs.core.PersistentArrayMap.fromArray([new cljs.core.Keyword(null, "url", "url", 1014020321), "/add-vote", new cljs.core.Keyword(null, "data", "data", 1016980252), q, new cljs.core.Keyword(null, "type", "type", 1017479852), "POST", new cljs.core.Keyword(null, "success", "success", 3441701749), auqlue.qa.update_ranking], true))
 };
 auqlue.qa.vote_up = function vote_up(e) {
   var q = this;
-  return console.log("voting up: ", q)
+  var qid = cljs.core.last.call(null, clojure.string.split.call(null, cljs.core.last.call(null, clojure.string.split.call(null, q.className, / /)), /-/));
+  var id = auqlue.qa.$prezi_id.val();
+  return auqlue.qa.add_vote.call(null, cljs.core.PersistentArrayMap.fromArray([new cljs.core.Keyword(null, "id", "id", 1013907597), id, new cljs.core.Keyword(null, "qid", "qid", 1014016190), qid], true))
 };
-jayq.core.on.call(null, jayq.core.$.call(null, new cljs.core.Keyword(null, ".q42", ".q42", 1015384883)), new cljs.core.Keyword(null, "click", "click", 1108654330), auqlue.qa.vote_up);
+jayq.core.on.call(null, auqlue.qa.$qa_footer, new cljs.core.Keyword(null, "click", "click", 1108654330), ".vup", auqlue.qa.vote_up);
 
 //# sourceMappingURL=auqlue.js.map

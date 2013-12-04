@@ -1,5 +1,5 @@
 (ns auqlue.handler
-  (:require [auqlue :refer [create-new-auqlue auqlue-data add-question]]
+  (:require [auqlue :refer [create-new-auqlue auqlue-data add-question add-vote]]
             [auqlue.layout 
              [create :refer [create-auqlue]]
              [qa :refer [qa-for]]]
@@ -13,6 +13,7 @@
        (qa-for (auqlue-data date title)))
   (POST "/new-auqlue" {auqlue :params} (str (create-new-auqlue auqlue)))
   (POST "/add-question" [id q] (str (add-question id q)))
+  (POST "/add-vote" [id qid] (str (add-vote id qid)))
   (route/resources "/")
   (route/not-found "not found"))
 

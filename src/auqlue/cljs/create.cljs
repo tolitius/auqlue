@@ -39,18 +39,24 @@
      (str "auqlue.com" details)]])
 
 (defn show-details [data]
-  (let [details (-> (reader/read-string data)
-                    clj->js)]
-    (jq/hide $optional)
-    (jq/hide $c-header)
-    (jq/hide $create-btn)
-    (jq/html $prezi-name "Auqlue is Ready")
-    (jq/hide $auqlue-info)
-    (jq/css $prezi-name {:color "rgba(163, 91, 68, 0.73)"})
-    (jq/css $create-auqlue {:margin-top "10%"})
-    (jq/attr $aa-form :class "form-group col-md-10 col-md-offset-1")
-    (jq/html $auqlue-info (auqlue-link details))
-    (.css (jq/fade-in $auqlue-info "slow") "display" "block")))
+  (let [details (reader/read-string data)]
+    (info->js details)
+    (info (:exists details))
+    (if-not (:exists details) 
+      (do
+        (jq/hide $optional)
+        (jq/hide $c-header)
+        (jq/hide $create-btn)
+        (jq/html $prezi-name "Auqlue is Ready")
+        (jq/hide $auqlue-info)
+        (jq/css $prezi-name {:color "rgba(163, 91, 68, 0.73)"})
+        (jq/css $create-auqlue {:margin-top "10%"})
+        (jq/attr $aa-form :class "form-group col-md-10 col-md-offset-1")
+        (jq/html $auqlue-info (auqlue-link (clj->js details)))
+        (.css (jq/fade-in $auqlue-info "slow") "display" "block"))
+      (do
+        (jq/attr $prezi-input :placeholder "This auqlue already exists..")
+        (.val $prezi-input "")))))
 
 (defn save-new-auqlue [auqlue]
   (jq/ajax {:url "/new-auqlue"
@@ -62,10 +68,10 @@
   (let [prezi (.val $prezi-input)
         presenter (.val $presenter-input)
         event (.val $event-input)]
-    (.log js/console "prezi: " prezi ", presenter: " presenter ", event: " event)
+    ;; (.log js/console "prezi: " prezi ", presenter: " presenter ", event: " event)
     (if (seq prezi)                                                                ;; add validation with "alerts"
       (save-new-auqlue {:prezi prezi :presenter presenter :event event})
-      (.log js/console "please enter \"Presentation Name\""))))
+      (jq/attr $prezi-input :placeholder "Please enter a presentation name"))))
 
 (jq/on $new-auqlue-btn :click
   (fn [e]

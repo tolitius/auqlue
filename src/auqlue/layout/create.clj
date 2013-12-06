@@ -17,17 +17,17 @@
   (in-container {:container-class "create-auqlue"}
     [:div.row.center
      [:form.add-auqlue {:role "form"}
-      [:div.form-group.col-md-6.col-md-offset-3
+      [:div.form-group.col-md-6.col-md-offset-3.aa-form
        [:label.prezi-name {:for "prezi-name"} "Presentation Name"]
-       [:div.input-group.margin-bottom-sm
+       [:div.input-group.margin-bottom-sm.auqlue-info
          [:input.form-control {:id "prezi-input" :autofocus "autofocus" :placeholder "name will be used in a link"}]
          [:span.input-group-addon.cal-icon
           [:i.fa.fa-calendar]]]]
-      [:div.form-group.col-md-6.col-md-offset-3
+      [:div.form-group.col-md-6.col-md-offset-3.create-btn-div
        [:button.btn.btn-lg.btn-warning {:type "submit" :id "new-auqlue"} "Create Auqlue"]]]]))
 
 (defn optional []
-  (in-container {:container-class "create-auqlue" :jumbo-class "o-footer"}
+  (in-container {:container-class "create-auqlue optional" :jumbo-class "o-footer"}
     [:div.row.center
      [:form {:role "form"}
       ;; [:div.form-group.col-md-6.col-md-offset-3.o-label

@@ -13,6 +13,7 @@
 .create-auqlue {
     font-family: fantasy, inherit;
 }
+
 .c-header {
     background: rgba(221, 182, 157, 0.1);
     padding-bottom: 10px;
@@ -81,6 +82,20 @@
     color: rgba(163, 91, 68, 0.73);
     /* color: rgba(255, 82, 0, 0.76); */
     /* color: rgba(0, 0, 0, 0.29) */
+}
+
+.auqlue-link {
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.auqlue-link:hover {
+    color: rgb(150, 65, 17);
+    background: rgba(255, 184, 0, 0.3);
+}
+
+.auqlue-info a:hover {
+    text-decoration: none;
 }
 
 .qa-header {

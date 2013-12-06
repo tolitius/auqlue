@@ -1,5 +1,5 @@
 (ns auqlue.qa
-  (:require [auqlue.thingies :refer [fade-out-in info info->js]]
+  (:require [auqlue.thingies :refer [fade-out-in info info->js local-storage? ls-put ls-get]]
             [clojure.string :refer [split]]
             [jayq.core :as jq]
             [cljs.reader :as reader]
@@ -12,6 +12,12 @@
 (def $prezi-id ($ :#prezi-id))
 (def $qa-footer ($ :.qa-footer))
 (def $vote ($ ".qa .vup"))
+
+(def voted
+  (if local-storage?
+    (if-let [v (ls-get ":voted")]
+      (atom (reader/read-string v))
+      (atom {}))))
 
 ;; questions
 
@@ -41,7 +47,7 @@
       (ladder-viz qs))
     (.log js/console "found no questions for this prezi")))
 
-(defn add-question []
+(defn add-question []                                         ;; TODO: mark it voted by the author
   (let [q (.val $q-input)
         id (.val $prezi-id)]
     (.log js/console "prezi id: " id ", question: " q)
@@ -59,6 +65,14 @@
         (add-question)))))
 
 ;; voting
+
+(defn new-vote? [id qid]
+  (not (some #{qid} (@voted id))))
+
+(defn record-vote [id qid]
+  (swap! voted assoc id 
+         (conj (@voted id) qid))
+  (ls-put ":voted" (str @voted)))
 
 (defn update-ranking [data]
   (let [{:keys [id qid votes]} (reader/read-string data)
@@ -83,7 +97,9 @@
                   (split #"-")
                   last)
           id (.val $prezi-id)]
-      (add-vote {:id id :qid qid}))))
+      (when (new-vote? id qid)
+        (record-vote id qid)
+        (add-vote {:id id :qid qid})))))
 
 (jq/on $qa-footer :click ".vup" vote-up)
 

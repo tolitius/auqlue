@@ -14,6 +14,19 @@
           (show el)) (* i i-tout)))
     xs)))
 
+(defn local-storage? []
+  (try 
+    (.setItem js/localStorage "42" "42")
+    (.getItem js/localStorage "42")
+    true
+    (catch js/Object e false)))
+
+(defn ls-put [k v]
+  (.setItem js/localStorage k v))
+
+(defn ls-get [k]
+  (.getItem js/localStorage k))
+
 (defn info [& m]
   (.log js/console (apply str m)))
 

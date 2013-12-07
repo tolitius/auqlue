@@ -3,6 +3,7 @@
 /out
 /classes
 /checkouts
+resources/public/js/auqlue*
 pom.xml
 *.jar
 *.class

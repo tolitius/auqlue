@@ -39,7 +39,7 @@
          :cname event
          :date (human-date d) 
          :title (dehyph t)
-         :qs qs})
+         :qs (reverse (sort-by :votes qs))})
       {:not-found true})))
 
 (defn add-question [id q]

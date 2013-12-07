@@ -43,7 +43,7 @@
   (if (seq data)
     (let [qs (reader/read-string data)]
       (.val $q-input "")
-      (jq/html $qa-footer (questions qs))
+      (jq/html $qa-footer (questions (reverse (sort-by :votes qs))))
       (ladder-viz qs))
     (.log js/console "found no questions for this prezi")))
 

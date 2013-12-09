@@ -41,8 +41,10 @@
            (conj (@qs id) 
                  {:qid (next-q-pk id) :question q :votes 1}))
     (swap! qs assoc id [{:qid 0 :question q :votes 1}]))      ;; if this is the first question, create the vec
-  (info (str "questions for [" id "]:" (@qs id)))
-  (@qs id))
+  (let [questions (@qs id)
+        added (dec (next-q-pk id))]
+    (info (str "questions for [" id "]:" questions "\n [" added "] was just added"))
+    {:added added :qs questions}))
 
 (defn vote-up [id qid]
   (let [prezi-qs (@qs id)

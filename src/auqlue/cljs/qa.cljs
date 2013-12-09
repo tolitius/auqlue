@@ -19,6 +19,11 @@
       (atom (reader/read-string v))
       (atom {}))))
 
+(defn record-vote [id qid]
+  (swap! voted assoc id 
+         (conj (@voted id) (str qid)))
+  (ls-put ":voted" (str @voted)))
+
 ;; questions
 
 (defpartial questions [qs]
@@ -41,16 +46,19 @@
 
 (defn show-questions [data]
   (if (seq data)
-    (let [qs (reader/read-string data)]
+    (let [{:keys [added qs]} (reader/read-string data)
+          id (.val $prezi-id)]
       (.val $q-input "")
+      ;; (info "recording a vote: [prezi: " id ", added question: " added "]")
+      (record-vote id added)
       (jq/html $qa-footer (questions (reverse (sort-by :votes qs))))
       (ladder-viz qs))
-    (.log js/console "found no questions for this prezi")))
+    (info "found no questions for this prezi")))
 
 (defn add-question []                                         ;; TODO: mark it voted by the author
   (let [q (.val $q-input)
         id (.val $prezi-id)]
-    (.log js/console "prezi id: " id ", question: " q)
+    (info "prezi id: " id ", question: " q)
     (if (seq q)
       (jq/ajax {:url "/add-question"
                 :data {:q q :id id}
@@ -68,11 +76,6 @@
 
 (defn new-vote? [id qid]
   (not (some #{qid} (@voted id))))
-
-(defn record-vote [id qid]
-  (swap! voted assoc id 
-         (conj (@voted id) qid))
-  (ls-put ":voted" (str @voted)))
 
 (defn update-ranking [data]
   (let [{:keys [id qid votes]} (reader/read-string data)

@@ -8,7 +8,7 @@ There are just too many questions that stay "unasked" and more importantly _unan
 
 ##What is Auqlue?
 
-Auqlue "takes its roots" from the "**A**nswer to the **U**ltimate **Q**uestion of **L**ife, the **U**niverse, and *E*verything". It allows a presenter/speaker, with "a single click", to create a little question universe (later "auqlue") dedicated to a specific meeting or talk.
+Auqlue "takes its roots" from the "**A**nswer to the **U**ltimate **Q**uestion of **L**ife, the **U**niverse, and **E**verything". It allows a presenter/speaker, with "a single click", to create a little question universe (later "auqlue") dedicated to a specific meeting or talk.
 
 This particular "auqlue" can be shared by the speaker with all the participants, and will enable people to just type their questions in, and vote for questions from other people.
 

@@ -38,6 +38,12 @@ This (link) can be shared with anyone who'd like to participate. Now click on it
 lein ring server
 ```
 
+## TODO
+
+This is an alpha (a working alpha) version, which has its own simplistic (atom based) in-memory database. Future versions would of course be based on the real data store, at least so it would survive restarts :)
+
+But as it stands now, it was successfully used at several different meetings, meetups. It is fun and helpful.
+
 ## License
 
 Copyright © 2013 tolitius

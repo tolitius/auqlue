@@ -1,0 +1,7 @@
+;; creating an auqlue partition
+[ 
+ ;; {:db/id #db/id [:db.part/tx] :db/txInstant #inst "2014-05-11T16:12:12.012-00:00"}
+
+ {:db/id #db/id[:db.part/db]
+  :db/ident :auqlue
+  :db.install/_partition :db.part/db} ]

@@ -1,0 +1,92 @@
+;; auqlue universe
+
+;; {34 {:title "Simple Made Easy" :presenter "Rich Hickey" :event "Chariot Day" :date date}
+;;  42 {:title "Functional for Orinary Smart People" :presenter "Anatoly and Dan" :event "Chariot Day" :date date}}
+
+;; {34 [{:qid 1 :votes v1 :question q1} 
+;;      {:qid 2 :votes v2 :question q2} ... ]
+;;  42 [{:qid 1 :votes v3 :questions q3}
+;;      {:qid 2 :votes v3 :questions q4}... ] ...}
+
+[
+
+ ;; {:db/id #db/id [:db.part/tx] 
+ ;;  :db/txInstant #inst "2014-05-01T13:09:09.009-00:00"}
+
+  ;;                                                title
+  ;; =======================================================
+
+  {:db/id #db/id[:db.part/db]
+   :db/ident :prezi/title
+   :db/valueType :db.type/string
+   :db/cardinality :db.cardinality/one
+   :db/fulltext true
+   :db/doc "presentation title/name"
+   :db.install/_attribute :db.part/db}
+
+  ;;                                              speaker
+  ;; =======================================================
+
+  {:db/id #db/id[:db.part/db]
+   :db/ident :prezi/speaker
+   :db/valueType :db.type/string
+   :db/cardinality :db.cardinality/one
+   :db/fulltext true
+   :db/doc "speaker's name"
+   :db.install/_attribute :db.part/db}
+
+  ;;                                                event
+  ;; =======================================================
+
+  {:db/id #db/id[:db.part/db]
+   :db/ident :prezi/event
+   :db/valueType :db.type/string
+   :db/cardinality :db.cardinality/one
+   :db/fulltext true
+   :db/doc "event's name"
+   :db.install/_attribute :db.part/db}
+
+  ;;  c                                              date
+  ;; =======================================================
+
+  {:db/id #db/id[:db.part/db]
+   :db/ident :prezi/date
+   :db/valueType :db.type/instant
+   :db/cardinality :db.cardinality/one
+   :db/doc "event's date"
+   :db.install/_attribute :db.part/db}
+
+  ;;                                            questions
+  ;; =======================================================
+
+  {:db/id #db/id[:db.part/db]
+   :db/ident :prezi/questions
+   :db/valueType :db.type/ref
+   :db/cardinality :db.cardinality/many
+   :db/isComponent true
+   :db/unique :db.unique/identity
+   :db/doc "questions to this prezi (asked by curious participants)"
+   :db.install/_attribute :db.part/db}
+
+  ;;                                             question
+  ;; =======================================================
+
+  {:db/id #db/id[:db.part/db]
+   :db/ident :qa/question
+   :db/valueType :db.type/string
+   :db/cardinality :db.cardinality/one
+   :db/fulltext true
+   :db/doc "a body/text of a single question"
+   :db.install/_attribute :db.part/db}
+
+  ;;    c                                  question votes
+  ;; =======================================================
+
+  {:db/id #db/id[:db.part/db]
+   :db/ident :qa/votes
+   :db/valueType :db.type/long
+   :db/cardinality :db.cardinality/one
+   :db/doc "number of votes for a single question"
+   :db.install/_attribute :db.part/db}
+]
+

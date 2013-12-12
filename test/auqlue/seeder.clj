@@ -19,14 +19,15 @@
   (create-schema "resources/db/partition.edn" 
                  "resources/db/schema.edn"))
 
-(defn data-from [uri here]
+(defn data-from [uri path]
   (connect-to uri)
   (create-schema "resources/db/partition.edn" 
                  "resources/db/schema.edn")
   (d/transact *conn*
-    ;; needs an 'eval' to process all the BigInts and friends
-    (eval (do (use '[datomic.api :only (db) :as d]) (read-datomic-edn here))))
-  (info "data from \"" here "\" loaded to [" uri "]"))
+    ;; ;; needs an 'eval' to process all the BigInts and friends
+    ;; (eval (do (use '[datomic.api :only (db) :as d]) (read-datomic-edn path))))
+    (read-datomic-edn path))
+  (error "data from \"" path "\" loaded to [" uri "]"))
 
 (defn delete-test-db [uri]
   (d/delete-database uri)

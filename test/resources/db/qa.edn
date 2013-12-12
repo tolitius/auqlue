@@ -1,0 +1,37 @@
+[
+  ;; {:db/id #db/id [:db.part/tx]
+  ;; :db/txInstant #inst "2013-05-09T13:09:09.009-00:00"}
+
+ {:db/id #db/id [:auqlue]
+  :prezi/title "Simple Made Easy"
+  :prezi/speaker "Rich Hickey"
+  :prezi/event "Strange Loop"
+  :prezi/questions [#db/id [:auqlue -1] #db/id [:auqlue -2] #db/id [:auqlue -3]]}
+   {:db/id #db/id [:auqlue -1]
+    :qa/question "is simple easy?"
+    :qa/votes 3}
+   {:db/id #db/id [:auqlue -2]
+    :qa/question "How to pair socks from a pile efficiently?"
+    :qa/votes 2}
+   {:db/id #db/id [:auqlue -3]
+    :qa/question "Why immutability matters?"
+    :qa/votes 42}
+
+ {:db/id #db/id [:auqlue]
+  :prezi/title "Functional Programming for Ordinary Smart People"
+  :prezi/speaker "Anatoly and Dan"
+  :prezi/event "Philly ETE"
+  :prezi/questions [#db/id [:auqlue -4] #db/id [:auqlue -5] #db/id [:auqlue -6]]}
+   {:db/id #db/id [:auqlue -4]
+    :qa/question "WTF is Mondad?"
+    :qa/votes 21}
+   {:db/id #db/id [:auqlue -5]
+    :qa/question "How to secure your AOP functional solution?"
+    :qa/votes 13}
+   {:db/id #db/id [:auqlue -6]
+    :qa/question "What kind of fruit is beer?"
+    :qa/votes 34}
+   {:db/id #db/id [:auqlue -7]
+    :qa/question "Why did you need to \"apply\" the \"map list\"?"
+    :qa/votes 7}
+ ]

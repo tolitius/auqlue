@@ -49,6 +49,14 @@
   "takes in an enitity id as a number"
   (d/touch (entity id)))
 
+(defn de-namespace
+  "{:prezi/event \"Strange Loop\", :prezi/speaker \"Rich Hickey\", :prezi/title \"Simple Made Easy\", :db/id 272678883689451}
+       to
+   {:event \"Strange Loop\", :speaker \"Rich Hickey\", :title \"Simple Made Easy\", :id 272678883689451}"
+  [m]
+  (into {} (for [[k v] m] 
+             [(-> k name keyword) v])))
+
 (defn with-tx [tx-data]
   (when (seq tx-data)
     @(d/transact *conn* tx-data)))

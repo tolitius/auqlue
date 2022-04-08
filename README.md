@@ -6,7 +6,7 @@ But questions are _very_ important: for people who listen in, for a speaker, as 
 
 There are just too many questions that stay "unasked" and more importantly _unanswered_ due to all the above: auqlue is here to change that!
 
-##What is Auqlue?
+## What is Auqlue?
 
 Auqlue "takes its roots" from the "**A**nswer to the **U**ltimate **Q**uestion of **L**ife, the **U**niverse, and **E**verything". It allows a presenter/speaker, with "a single click", to create a little question universe (later "auqlue") dedicated to a specific meeting or talk.
 
@@ -14,7 +14,7 @@ This particular "auqlue" can be shared by the speaker with all the participants,
 
 A speaker can choose when to answer these questions: it can be during a talk, at the end of a talk, after a talk, etc..
 
-##Show me what you mean..
+## Show me what you mean..
 
 Sure, here is what Auqlue looks like:
 
